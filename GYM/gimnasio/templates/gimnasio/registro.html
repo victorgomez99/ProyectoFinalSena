@@ -1,0 +1,70 @@
+{% extends 'gimnasio/base.html' %}
+{% load static %}
+{% block contenedor %}
+<body>
+<!--<link rel="stylesheet" href="{% static 'gimnasio/css/registro.css' %}"> -->
+<link rel="icon" type="image/x-icon" href="{% static 'gimnasio/img/Recurso2.svg' %}" />
+  <div class="card" style="width: 25%; margin-left: 40%;">
+    <div class="card-body">
+      <form action="{% url 'gimnasio:register' %}" method="POST" onsubmit="return validarPasswordRegistro();, alerta();">
+        {% csrf_token %} 
+        <section class="form-register">
+          <h4>Formulario Registro</h4>
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" aria-describedby="emailHelp" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Apellido</label>
+                <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Correo</label>
+                  <input type="email" class="form-control" name="correo" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Contraseña</label>
+                  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Repita la Contraseña</label>
+                  <input type="password" class="form-control" name="contrasena2" placeholder="Contraseña"required>
+                </div>
+                <!--<select name="rol" class="form-control" required>
+                  <option value="">Seleccione su Rol</option>
+                  <option value="1">Administrador</option>
+                  <option value="2">Empleado</option>
+                  <option value="3">Usuario</option>
+                </select>-->
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1" id="aceptarcondi">Acepto Terminos y Condiciones</label>
+                    <button  style="margin-left: 27%;" type="submit" class="btn btn-info" >Registrarse</button>
+                </div>
+              <p class="btn btn-outline-info text-decoration-none" style="margin-left: 20%;"><a href="{% url 'gimnasio:inisiosesion' %}">... Ya Tengo Cuenta ...</a></p><br>
+              <p style="width: 3%; margin-left: 40%;"><a class="btn btn-info" href="{% url 'gimnasio:index' %}">Volver</a></p>
+        </section>
+    </div>
+  </div>
+<!--<button type="submit" class="btn btn-primary">Registrarse</button>
+</form>
+<input name="nombre" id="nombre" type="text" class="controls" placeholder="Ingrese su Nombre" required>
+<input name="apellido" id="apellido" type="text" class="controls" placeholder="Ingrese su Apellido" required>
+<input name="correo" id="correo" type="email" class="controls" placeholder="Ingrese su Correo" required>
+<input name="contraseña" id="contraseña" type="password" class="controls" placeholder="Ingrese su Contraseña" required>
+<input name="contraseña2" id="contraseña2"  type="password" class="controls" placeholder="Ingrese su Contraseña" required>
+<select name="rol" class="form-control" required>
+<option value="">Seleccione su Rol</option>
+<option value="1">Administrador</option>
+<option value="2">Empleado</option>
+<option value="3">Usuario</option>
+</select>
+<p>Estoy de Acuerdo Con <a href="#">Terminos y Condiciones</a></p>
+<button type="submit" class="btn btn-info" >Registrarse</button>
+<p><a href="{% url 'gimnasio:inisiosesion' %}">¿Ya Tengo Cuenta?</a></p>
+<p><a href="{% url 'gimnasio:index' %}">Vólver</a></p>
+</section>-->
+    </form>
+</body>
+{% endblock contenedor %}

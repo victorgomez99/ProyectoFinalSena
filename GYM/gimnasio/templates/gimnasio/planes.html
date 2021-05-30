@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'gimnasio/css/planes.css' %}">
+    <title>PLANES</title>
+</head>
+<body>
+    <header>
+    <p><h2>PLANES</h2></p>
+    <p><h3>Elige tu plan y Empieza a entrenar</h3></p>
+    </header>
+    <br>
+    <section class="section">
+    <fieldset id="uno">
+    <h2>PLAN SPORT</h2>
+    <p>Entrena cuando quieras sin multa de cancelación:</p><h1> $ 49.900*</h1>
+    <p>Inscripción: Varía según la unidad.</p>
+    <p>Mantenimiento anual: $ 89.000*</p>
+    Sin multa por cancelación.
+    <br>
+    <button class="a" type="button">SELECCIONAR</button>
+        <fieldset>
+        <p><h3>ACTIVIDADES</h3></p>
+                <p>* Área de peso libre e integrado</p>
+                <p>* Área de cardio</p>
+                <p>* Camerinos</p>
+                <p>* Duchas</p>
+                <p>* Lockers</p>
+        <p><h3>CONDICIONES</h3></p>
+                Sin multa por cancelación con aviso previo a 30 días antes de la fecha de cobro.
+        <p><h3>BENEFICIOS INCLUIDOS</h3></p>
+                <p>* Sin cargo de cancelación</p>
+                <p>* Acceso a todas las zonas</p>
+        </fieldset>
+    </fieldset>
+    </section>
+    <section class="sec">
+    <fieldset id="dos">
+            <h2>PLAN BLACK</h2>
+            <p>Entrena en cualquiera de</p>
+            <p>Inuestros Centros de</p>
+            <p>Acondicionamiento y</p>
+            <p>Preparación Física Gym Sport Center</p>
+            Sin multa por cancelación.<br>
+            <h1> $ 69.900*</h1>
+            <p>Inscripción: Varía según la unidad.</p>
+            <p>Mantenimiento anual: $ 89.000*</p>
+            Conmulta por cancelación.
+            <br>
+            <button class="a" type="button">SELECCIONAR</button>
+    <fieldset>
+    <p><h3>ACTIVIDADES</h3></p>
+            <p>* Área de peso libre e integrado</p>
+            <p>* Área de cardio</p>
+            <p>* Camerinos</p>
+            <p>* Duchas</p>
+            <p>* Lockers</p>
+    <p><h3>CONDICIONES</h3></p>
+            <p>* Contrato a 12 meses</p>
+            <p>* Multa de cancelación</p>
+            <p>* Cancelación con aviso previo a 30 días antes de la fecha de cobro.</p>
+    <p><h3>BENEFICIOS INCLUIDOS</h3></p>
+            <p>* Acceso a todas las zonas</p>
+            <p>* Sillones de masaje</p>
+            <p>* Acceso a otras sedes de la cadena</p>
+            <p>* Invitar un amigo</p>
+    </fieldset>
+    </fieldset>
+     <p><a class="vic" href="{% url 'gimnasio:index' %}">Vólver</a></p>
+    </section>
+
+</body>
+</html>

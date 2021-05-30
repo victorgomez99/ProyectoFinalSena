@@ -1,0 +1,42 @@
+{% extends 'gimnasio/base.html' %}
+{% load static %}
+{% block contenedor %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title> Ingresar </title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
+    <!--<link rel="stylesheet" href="{% static 'gimnasio/css/inisiosesion.css' %}"> -->
+	<link rel="icon" type="image/x-icon" href="{% static 'gimnasio/img/Recurso2.svg' %}" />
+  </head>
+  <body>
+  <br>
+<form action="{% url 'gimnasio:login' %}" method="POST" onsubmit="return alerta();" >
+    {% csrf_token %} 
+	<div class="card" style="width: 20%; margin-left: 40%;">
+    <form>
+		<div class="form-group">
+		  <label for="exampleInputEmail1">Correo Electrónico</label>
+		  <input type="email" class="form-control" name="correo" placeholder="Correo Electrónico" aria-describedby="emailHelp" required>
+		</div>
+		<div class="form-group">
+		  <label for="exampleInputPassword1">Contraseña</label>
+		  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+		</div>
+		<!--<div class="form-group form-check">
+		  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+		  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+		</div>-->
+		<select name="rol" class="form-control" required>
+			<option value="">Seleccione su Rol</option>
+			<option value="1">Administrador</option>
+			<option value="2">Empleado</option>
+			<option value="3">Usuario</option>
+		</select>
+		<button type="submit" class="btn btn-primary">Ingresar</button>
+	  </form>
+	</div>
+</form>
+</body>
+<br>
+{% endblock contenedor %}

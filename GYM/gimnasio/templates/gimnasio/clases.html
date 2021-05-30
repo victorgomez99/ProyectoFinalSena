@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'gimnasio/css/clases.css' %}">
+    <title>CLASES</title>
+</head>
+<body>
+    <header>
+    <p class="titu"><h3>CLASES QUE BRINDA EL GIMNASIO</h3></p>
+    </header>
+    <br>
+    <fieldset class="uno">
+    <h1>SPINNING</h1>
+    <p><img class="izquierda" src="{% static 'gimnasio/img/spinning.JPEG' %}"></p>
+    <p>El spinning es una actividad que se hace con una bici estática, y en la que a través de las instrucciones de un instructor y de la música, seguimos un ritmo pedaleando con diferente intensidad. Es habitual practicarlo en grupo en los gimnasios, dotándolo de un componente colectivo que consigue hacerlo más divertido.</p>
+    </fieldset>
+    <fieldset class="dos">
+    <h1>ZUMBA</h1>
+    <p><img class="medio" src="{% static 'gimnasio/img/zumba.jpg' %}"></p>
+    <p>Zumba es una disciplina deportiva que se imparte en clases dirigidas en la que se realizan ejercicios aeróbicos al ritmo de música latina (merengue, samba, reggaeton, cumbia y salsa) con la finalidad de perder peso de forma divertida y mejorar el estado de ánimo de los deportistas.</p>
+    
+    </fieldset>
+    <fieldset class="tres">
+    <h1>AERÓBICOS</h1>
+    <p><img class="derecha" src="{% static 'gimnasio/img/aerobicos.jpg' %}"></p>
+    <p>Es una combinación de ejercicios cardiovasculares realizados al son de la música. Las clases de aerobicos suelen consistir en el seguimiento de una serie de rutinas y pasos de baile que hacen que aumente la frecuencia de las pulsaciones cardiacas. </p>
+    </fieldset> 
+    <button class="a" type="button"><a href="{% url 'gimnasio:index' %}">Vólver</button>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'gimnasio/base.html' %}
+{% load static %}
+{% block titulo %} Consultar Producto{% endblock %}
+{% block contenedor %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    {% if messages %}
+        {% for registro in messages %}
+            {{ registro }}
+        {% endfor %}
+    {% else %}
+        NO mensajes
+    {% endif %}
+
+    <nav aria-label="breadcrumb">
+    </nav>
+    <a href="{% url 'gimnasio:producto-formulario' %}" class="btn btn-warning">Crear Producto</a>
+    <br><br> 
+    {% if datos %}
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Id_producto</th>
+            <th>Nombre</th>
+            <th>Valor_venta</th>
+            <th>Inventario</th>
+            <th>Acciones</th>
+        </tr>
+        {% for registro in datos %}
+        <tr>
+            <td>{{ registro.id_producto }}</td>
+            <td>{{ registro.nombre }}</td>
+            <td>{{ registro.valor_venta }}</td>
+            <td>{{ registro.inventario }}</td>
+            <td>
+<a onclick="eliminarProducto('{% url 'gimnasio:eliminar-producto' registro.id_producto %}')" href="#" class="btn btn-danger">Eliminar</a>
+<a href="{% url 'gimnasio:actualizar-producto' registro.id_producto %}" class="btn btn-info">Actualizar</a>
+          
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    No hay datos aún.
+    {% endif %}
+
+    <ul class="pagination">
+        <li class="page-item {% if not datos.has_previous %}disabled{% endif %}"><a class="page-link" href="{% if datos.has_previous %}?page={{ datos.previous_page_number }}{% endif %}">Anterior</a></li>
+        <li class="page-item"><a class="page-link">Página {{ datos.number }} de {{ datos.paginator.num_pages }}.</a></li>
+        <li class="page-item {% if not datos.has_next %}disabled{% endif %}"><a class="page-link" href="{% if datos.has_next %}?page={{ datos.next_page_number }}{% endif %}">Siguiente</a></li>
+    </ul>
+    
+    <ul class="pagination">
+        <li class="page-item {% if not datos.has_previous %}disabled{% endif %}"><a class="page-link" href="{% if datos.has_previous %}?page=1 {% endif %}">Primera</a></li>
+        <li class="page-item {% if not datos.has_previous %}disabled{% endif %}"><a class="page-link" href="{% if datos.has_previous %}?page={{ datos.previous_page_number }} {% endif %}">Anterior</a></li>
+        {% for i in datos.paginator.page_range %}
+            {% if datos.number == i %}
+            <li class="page-item active"><a class="page-link" >{{ i }}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        <li class="page-item {% if not datos.has_next %}disabled{% endif %}"><a class="page-link" href="{% if datos.has_next %}?page={{ datos.next_page_number }} {% endif %}">Siguiente</a></li>
+        <li class="page-item {% if not datos.has_next %}disabled{% endif %}"><a class="page-link" href="{% if datos.has_next %}?page={{ datos.paginator.num_pages }} {% endif %}">Última</a></li>
+    </ul>
+
+    <script src="{% static 'gimnasio/js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'gimnasio/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'gimnasio/js/libreria.js' %}"></script>
+
+{% endblock %}
